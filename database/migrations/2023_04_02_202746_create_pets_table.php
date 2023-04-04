@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('id_category');
             $table->unsignedInteger('id_order');
-            $table->string('nombre');
+            $table->string('name');
+            $table->string('sex');
             $table->timestamps();
 
             $table->foreign('id_order')->references('id')->on('orders')->onUpdate('cascade')->onDelete('cascade');
