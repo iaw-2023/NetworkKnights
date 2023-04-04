@@ -14,15 +14,14 @@ class PetsSeeder extends Seeder
     {
         DB::table('orders')->insert([
             'id_category' => '1',
-            'id_order' => '',
+            'id_order' => 'null',
             'name' => 'Luna',
-            'sex' => 'female',
-            
+            'sex' => 'female',            
         ]);
 
         DB::table('orders')->insert([
             'id_category' => '2',
-            'id_order' => '',
+            'id_order' => 'null',
             'name' => 'Campanita',
             'sex' => 'female',
             
@@ -30,7 +29,7 @@ class PetsSeeder extends Seeder
 
         DB::table('orders')->insert([
             'id_category' => '1',
-            'id_order' => '',
+            'id_order' => 'null',
             'name' => 'Toto',
             'sex' => 'male',
             
@@ -38,7 +37,7 @@ class PetsSeeder extends Seeder
 
         DB::table('orders')->insert([
             'id_category' => '2',
-            'id_order' => '',
+            'id_order' => 'null',
             'name' => 'Doscientos',
             'sex' => 'male',
             

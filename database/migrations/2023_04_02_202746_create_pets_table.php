@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('pets', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('id_category');
-            $table->unsignedInteger('id_order');
+            $table->unsignedInteger('id_order')->nullable();;
             $table->string('name');
             $table->string('sex');
-            $table ->string('state');
             $table->timestamps();
 
             $table->foreign('id_order')->references('id')->on('orders')->onUpdate('cascade')->onDelete('cascade');

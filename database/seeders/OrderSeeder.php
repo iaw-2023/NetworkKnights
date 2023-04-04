@@ -14,9 +14,23 @@ class OrderSeeder extends Seeder
     {
         DB::table('orders')->insert([
             'id_user' => '1',
-            'detail' => '',
-            'fecha' => now(),
-            
+            'fecha' => now(),            
+        ]);
+        DB::table('orders')->insert([
+            'id_user' => '1',
+            'fecha' => now(),            
+        ]);
+        DB::table('orders')->insert([
+            'id_user' => '1',
+            'fecha' => now(),            
+        ]);
+        DB::table('orders')->insert([
+            'id_user' => '2',
+            'fecha' => now(),            
+        ]);
+        DB::table('orders')->insert([
+            'id_user' => '1',
+            'fecha' => now(),            
         ]);
     }
 }
