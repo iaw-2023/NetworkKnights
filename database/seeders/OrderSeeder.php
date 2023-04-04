@@ -12,6 +12,11 @@ class OrderSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DB::table('orders')->insert([
+            'id_user' => '1',
+            'detail' => '',
+            'fecha' => now(),
+            
+        ]);
     }
 }

@@ -12,6 +12,36 @@ class PetsSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DB::table('orders')->insert([
+            'id_category' => '1',
+            'id_order' => '',
+            'name' => 'Luna',
+            'sex' => 'female',
+            
+        ]);
+
+        DB::table('orders')->insert([
+            'id_category' => '2',
+            'id_order' => '',
+            'name' => 'Campanita',
+            'sex' => 'female',
+            
+        ]);
+
+        DB::table('orders')->insert([
+            'id_category' => '1',
+            'id_order' => '',
+            'name' => 'Toto',
+            'sex' => 'male',
+            
+        ]);
+
+        DB::table('orders')->insert([
+            'id_category' => '2',
+            'id_order' => '',
+            'name' => 'Doscientos',
+            'sex' => 'male',
+            
+        ]);
     }
 }
