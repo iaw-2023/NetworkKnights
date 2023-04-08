@@ -14,24 +14,19 @@ class OrderSeeder extends Seeder
     public function run(): void
     {
         DB::table('orders')->insert([
-            'id_user' => '1',
-            'fecha' => now(),            
+            'id_user' => '1'            
         ]);
         DB::table('orders')->insert([
-            'id_user' => '1',
-            'fecha' => now(),            
+            'id_user' => '1'          
         ]);
         DB::table('orders')->insert([
-            'id_user' => '1',
-            'fecha' => now(),            
+            'id_user' => '1'            
         ]);
         DB::table('orders')->insert([
-            'id_user' => '2',
-            'fecha' => now(),            
+            'id_user' => '2'            
         ]);
         DB::table('orders')->insert([
-            'id_user' => '1',
-            'fecha' => now(),            
+            'id_user' => '1'         
         ]);
     }
 }

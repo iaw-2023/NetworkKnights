@@ -13,32 +13,28 @@ class PetsSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('orders')->insert([
+        DB::table('pets')->insert([
             'id_category' => '1',
-            'id_order' => 'null',
             'name' => 'Luna',
             'sex' => 'female',            
         ]);
 
-        DB::table('orders')->insert([
+        DB::table('pets')->insert([
             'id_category' => '2',
-            'id_order' => 'null',
             'name' => 'Campanita',
             'sex' => 'female',
             
         ]);
 
-        DB::table('orders')->insert([
+        DB::table('pets')->insert([
             'id_category' => '1',
-            'id_order' => 'null',
             'name' => 'Toto',
             'sex' => 'male',
             
         ]);
 
-        DB::table('orders')->insert([
+        DB::table('pets')->insert([
             'id_category' => '2',
-            'id_order' => 'null',
             'name' => 'Doscientos',
             'sex' => 'male',
             

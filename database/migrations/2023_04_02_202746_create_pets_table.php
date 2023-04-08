@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pets', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('id_category');
-            $table->unsignedInteger('id_order')->nullable();;
+            $table->unsignedInteger('id_order')->nullable();
             $table->string('name');
             $table->string('sex');
             $table->timestamps();
