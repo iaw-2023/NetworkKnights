@@ -1,3 +1,6 @@
+##Proyecto inicial
+    La documentación correspondiente al proyecto inicial se encuentra en Proyecto inicial.pdf
+
 ## Pasos
 
 - clonar el repo https://github.com/iaw-2023/laravel-template y mantener como owner la organización de la materia.
