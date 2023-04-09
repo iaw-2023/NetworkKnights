@@ -20,5 +20,9 @@ class CategorySeeder extends Seeder
         DB::table('categories')->insert([
             'name' => 'gato'
         ]);
+
+        DB::table('categories')->insert([
+            'name' => 'conejo'
+        ]);
     }
 }
