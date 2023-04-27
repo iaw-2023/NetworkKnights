@@ -1,7 +1,7 @@
-@extends('layouts.baseTemplate');
+@extends('layouts.baseTemplate')
 
 @section('contenido')
-<h2>CREAR REGISTROS</h2>
+<h2>Crear nueva categoria</h2>
 <form action="/categories" method="POST">
     @csrf
   <div class="mb-3">

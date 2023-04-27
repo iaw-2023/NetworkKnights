@@ -11,7 +11,7 @@
     <title>CRUD</title>
   </head>
   <body>
-    <h1 class="bg-primary text white text-center"> CRUD con Laravel y la concha de tu hermana</h1>
+    <h1 class="bg-primary text white text-center"> CRUD </h1>
         
     <div class="container">
         @yield('contenido')

@@ -1,7 +1,7 @@
 @extends('layouts.baseTemplate')
 
 @section('contenido')
-<h2>EDITAR REGISTROS</h2>
+<h2>Editar categoria</h2>
 
 <form action="/categories/{{$categoria->id}}" method="POST">
     @csrf    
