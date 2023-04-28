@@ -15,12 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
+});
+
+Route::get('/home', function () {
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('home'); //antes tenia dashboard
+})->middleware(['auth', 'verified'])->name('home'); //antes tenia dashboard
 
 
 Route:: resource('categories', 'App\Http\Controllers\CategoryController');
