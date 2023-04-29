@@ -1,15 +1,16 @@
 @extends('layouts.baseTemplate')
 @section('contenido')
+<h1> Ordenes </h1>
 <a href="orders/create" class="btn btn-primary">CREAR</a>
 
 <table class="table table-striped mt-4">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
+    <thead class="thead-dark">
+    <tr>
+    <th scope="col">ID</th>
+            <th scope="col">Accions</th>
             <!-- demas atributos -->
-
-        </tr>
-    </thead>
+    </tr>
+  </thead>
     <tbody>
         @foreach($ordenes as $orden)
         <tr>
