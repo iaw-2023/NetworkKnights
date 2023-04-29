@@ -15,20 +15,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
+});
+
+Route::get('/home', function () {
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('home'); //antes tenia dashboard
+})->middleware(['auth', 'verified'])->name('home'); //antes tenia dashboard
 
 
-Route:: resource('/categories', 'App\Http\Controllers\CategoryController');
 
-Route:: resource('/orders', 'App\Http\Controllers\OrderController');
+Route:: resource('categories', 'App\Http\Controllers\CategoryController');
+Route:: resource('pets', 'App\Http\Controllers\PetController');
+Route:: resource('orders', 'App\Http\Controllers\OrderController');
 
 
 //Route:: resource('/entities', 'App\Http\');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

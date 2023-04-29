@@ -11,8 +11,8 @@
     <title> </title>
   </head>
   <body>
-    <h1 class="bg-primary text white text-center"> CRUD </h1>
-        
+    <!--<h1 class="bg-primary text white text-center"> CRUD </h1>-->
+    @include('layouts.navbar')
     <div class="container">
         @yield('contenido')
     </div>
