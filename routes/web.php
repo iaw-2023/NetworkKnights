@@ -23,7 +23,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route:: resource('categories', 'App\Http\Controllers\CategoryController');
+Route:: resource('/categories', 'App\Http\Controllers\CategoryController');
+
+Route:: resource('/orders', 'App\Http\Controllers\OrderController');
+
+
+//Route:: resource('/entities', 'App\Http\');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
