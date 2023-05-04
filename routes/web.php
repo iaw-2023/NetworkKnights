@@ -26,9 +26,9 @@ Route::get('/dashboard', function () {
     return view('home'); //antes tenia dashboard
 })->middleware(['auth', 'verified'])->name('home'); //antes tenia dashboard
 
-
 Route:: resource('categories', 'App\Http\Controllers\CategoryController');
 Route:: resource('pets', 'App\Http\Controllers\PetController');
+Route:: resource('orders', 'App\Http\Controllers\OrderController');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

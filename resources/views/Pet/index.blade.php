@@ -1,16 +1,16 @@
 @extends('layouts.baseTemplate')
 
 @section('contenido')
-<h1> Vista INDEX Pets </h1>
+<h1> Mascotas </h1>
 <a href = "pets/create" class= "btn btn-primary"> CREAR </a>
 
-<table class="table table-dark table-striped mt-4"> 
-    <thead>
+<table class="table table-striped mt-4"> 
+    <thead class="thead-dark">
         <tr>
            <th scope="col">ID</th> 
            <th scope="col">Name</th>
            <th scope="col">Sex</th>
-           <th scope="col">ID Category</th>
+           <th scope="col">Category</th>
            <th scope="col">ID Order</th>
            <th scope="col">Accions</th>
         </tr>
@@ -21,7 +21,7 @@
             <td>{{$pet -> id}}</td>
             <td>{{$pet -> name}}</td>
             <td>{{$pet -> sex}}</td>
-            <td>{{$pet -> id_category}}</td>
+            <td>{{$pet -> category -> name}}</td>
             <td>{{$pet -> id_order}}</td>
             <td>
                 <form action="{{route('pets.destroy',$pet->id) }}" method="POST"> 
