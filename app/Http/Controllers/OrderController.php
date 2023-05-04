@@ -18,6 +18,12 @@ class OrderController extends Controller
 
     }
 
+    public function indexApi()
+    {
+        $ordenes = Order::all();
+        return response()->json($ordenes);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
