@@ -18,18 +18,18 @@
       </ul>
       
 
-      <li class="navbar-nav nav-item dropdown inline">
+      <li class="navbar-nav nav-item dropdown inline ">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{ Auth::user()->name }}
           </a>
-          <ul class="dropdown-menu dropdown-menu-end px-1" aria-labelledby="bd-theme">
+          <ul class="dropdown-menu dropdown-menu-end bg-secondary px-1 " aria-labelledby="bd-theme">
               <li>
-                  <a class="dropdown-item" href="{{ route('profile.edit') }}">
+                  <a class="dropdown-item bg-secondary text-white" href="{{ route('profile.edit') }}">
                       {{ ('Profile') }}
                   </a>
               </li>
               <li>
-                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                  <a class="dropdown-item bg-secondary text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
                       {{ ('Log out') }}
                   </a>
