@@ -6,20 +6,21 @@
 <table class="table table-striped mt-4">
     <thead class="thead-dark">
     <tr>
-    <th scope="col">ID</th>
-            <th scope="col">Accions</th>
-            <!-- demas atributos -->
+        <th scope="col">ID</th>
+        <th scope="col">Solicitante</th>
+        <th scope="col">Accions</th>
     </tr>
   </thead>
     <tbody>
         @foreach($ordenes as $orden)
         <tr>
-            <td> {{ $orden->id}} </td>
+            <td> {{ $orden-> id}} </td>
+            <td> {{ $orden-> client -> name}} </td>
             
             <!-- demas atributos -->
             <td>
             <form action= "{{route ('orders.destroy',$orden->id)}}" method="POST">
-             <a href= "/orders/{{$orden->id}}/edit" class="btn btn-info">Editar</a>         
+                      
                 @csrf
                 @method('DELETE')
              <button type="submit" class="btn btn-danger">Borrar</button>

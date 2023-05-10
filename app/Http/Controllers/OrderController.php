@@ -40,7 +40,7 @@ class OrderController extends Controller
         $ordenes = new Order();
 
         $ordenes->id = $request->get('id');
-        $ordenes->name = $request->get('name');
+        $ordenes -> id_user = $request->get('id_user');
 
         $ordenes->save();
 
