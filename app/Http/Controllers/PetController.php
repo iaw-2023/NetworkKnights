@@ -17,6 +17,12 @@ class PetController extends Controller
         return view('Pet.index')->with('pets', $pets);
     }
 
+    public function indexApi()
+    {
+        $pets = Pet::all();
+        return response()->json($categorias);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
