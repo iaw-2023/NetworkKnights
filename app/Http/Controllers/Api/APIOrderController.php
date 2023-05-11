@@ -13,11 +13,6 @@ class APIOrderController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    public function indexApi()
-    {
         $ordenes = Order::all();
         return response()->json($ordenes);
     }

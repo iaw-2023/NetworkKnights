@@ -13,15 +13,11 @@ class APIPetController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    public function indexApi()
-    {
         $pets = Pet::all();
         return response()->json($pets);
     }
 
+   
     /**
      * Store a newly created resource in storage.
      */

@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::get('/categories',[APICategoryController::class, 'indexApi']);
-Route::get('/orders',[APIOrderController::class, 'indexApi']);
-Route::get('/pets',[APIPetController::class, 'indexApi']);
+Route::get('/categories',[APICategoryController::class, 'index']);
+Route::get('/orders',[APIOrderController::class, 'index']);
+Route::get('/pets',[APIPetController::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

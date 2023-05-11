@@ -1,7 +1,6 @@
 @extends('layouts.baseTemplate')
 @section('contenido')
 <h1> Ordenes </h1>
-<a href="orders/create" class="btn btn-primary">CREAR</a>
 
 <table class="table text-white mt-4">
     <thead class="thead-dark">
@@ -15,7 +14,7 @@
         @foreach($ordenes as $orden)
         <tr>
             <td> {{ $orden-> id}} </td>
-            <td> {{ $orden-> client -> name}} </td>
+            <td> {{ $orden-> user-> name}} </td>
             
             <!-- demas atributos -->
             <td>

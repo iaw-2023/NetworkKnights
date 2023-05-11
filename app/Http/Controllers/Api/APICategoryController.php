@@ -13,11 +13,6 @@ class APICategoryController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    public function indexApi()
-    {
         $categorias = Category::all();
         return response()->json($categorias);
     }
@@ -27,7 +22,14 @@ class APICategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categoria = Category::find($request->nombre);
+        if ($categoria) {
+            return response()->json(['error' => 'Ya existe una categoria con ese nombre'], 404);
+        }
+        $categoria = new Category();
+        $categoria->nombre = $request->nombre;
+        $categoria->save();
+        return response()->json($categoria, 201);
     }
 
     /**
@@ -35,7 +37,11 @@ class APICategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $categoria = Category::find($id);
+        if (!$categoria) {
+            return response()->json(['error' => 'Categoría no encontrada'], 404);
+        }
+        return response()->json($categoria);
     }
 
     /**
@@ -43,7 +49,13 @@ class APICategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $categoria = Category::find($id);
+        if (!$categoria) {
+            return response()->json(['error' => 'Categoría no encontrada'], 404);
+        }
+        $categoria->nombre = $request->nombre;
+        $categoria->save();
+        return response()->json($categoria);
     }
 
     /**
@@ -51,6 +63,11 @@ class APICategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $categoria = Category::find($id);
+        if (!$categoria) {
+            return response()->json(['error' => 'Categoría no encontrada'], 404);
+        }
+        $categoria->delete();
+        return response()->json(['message' => 'Categoría eliminada correctamente']);
     }
 }

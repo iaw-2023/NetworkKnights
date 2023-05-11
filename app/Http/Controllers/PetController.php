@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pet;
+use App\Models\Category;
 
 class PetController extends Controller
 {
@@ -22,7 +23,8 @@ class PetController extends Controller
      */
     public function create()
     {
-        return view('Pet.create');
+        $categorias = Category::all();
+        return view('Pet.create')->with('categorias',$categorias);
     }
 
     /**
@@ -55,7 +57,8 @@ class PetController extends Controller
     public function edit(string $id)
     {
         $pet = Pet::find($id);
-        return view('Pet.edit')->with('pet', $pet);
+        $categorias = Category::all();
+        return view('Pet.edit')->with('pet', $pet)->with('categorias',$categorias);
     }
 
     /**
