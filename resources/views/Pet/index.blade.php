@@ -4,7 +4,7 @@
 <h1> Mascotas </h1>
 <a href = "pets/create" class= "btn btn-primary"> CREAR </a>
 
-<table class="table table-striped mt-4"> 
+<table class="table text-white mt-4"> 
     <thead class="thead-dark">
         <tr>
            <th scope="col">ID</th> 

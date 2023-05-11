@@ -19,7 +19,7 @@ class APIPetController extends Controller
     public function indexApi()
     {
         $pets = Pet::all();
-        return response()->json($categorias);
+        return response()->json($pets);
     }
 
     /**

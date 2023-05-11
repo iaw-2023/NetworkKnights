@@ -4,12 +4,6 @@
 <h2>Crear nueva categoria</h2>
 <form action="/categories" method="POST">
     @csrf
-    <!--
-  <div class="mb-3">
-    <label for="" class="form-label">Id</label>
-    <input id="id" name="id" type="text" class="form-control" tabindex="1">    
-  </div>
-  -->
   <div class="mb-3">
     <label for="" class="form-label">Nombre</label>
     <input id="name" name="name" type="text" class="form-control" tabindex="2">
