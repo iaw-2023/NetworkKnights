@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categorias = Category::all();
-        return view('category.index')-> with('categorias',$categorias);
+        return view('Category.index')-> with('categorias',$categorias);
     }
 
     public function indexApi()
@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        return view('Category.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class CategoryController extends Controller
     public function edit(string $id)
     {
         $categoria = Category::find($id);
-        return view('category.edit')->with('categoria',$categoria);
+        return view('Category.edit')->with('categoria',$categoria);
     }
 
     /**
