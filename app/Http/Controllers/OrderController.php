@@ -13,7 +13,7 @@ class OrderController extends Controller
     public function index()
     {
         $ordenes = Order::all();
-        return view ('order.index')->with('ordenes',$ordenes);
+        return view ('Order.index')->with('ordenes',$ordenes);
 
 
     }
@@ -29,7 +29,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view ('order.create');
+        return view ('Order.create');
     }
 
     /**
@@ -61,7 +61,7 @@ class OrderController extends Controller
     public function edit(string $id)
     {
         $orden = Order::find($id);
-        return view('order.edit')->with('orden',$orden);
+        return view('Order.edit')->with('orden',$orden);
     }
 
     /**
