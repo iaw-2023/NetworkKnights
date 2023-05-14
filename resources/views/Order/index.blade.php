@@ -15,8 +15,6 @@
         <tr>
             <td> {{ $orden-> id}} </td>
             <td> {{ $orden-> user-> name}} </td>
-            
-            <!-- demas atributos -->
             <td>
             <form action= "{{route ('orders.destroy',$orden->id)}}" method="POST">
                       
