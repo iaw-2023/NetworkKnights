@@ -9,31 +9,33 @@ use App\Models\Pet;
 class APIPetController extends Controller
 {
     /**
+     * * Obtiene una lista de todas las mascotas existentes.
+     *
+     * @return \Illuminate\Http\JsonResponse
      * @OA\Get(
-     *     path="/pets",
+     *     path="/rest/pets",
      *     summary="Obtener todas las mascotas",
      *     description="Obtiene todas las mascotas almacenadas en la base de datos.",
-     *     tags={"Mascotas"},
+     *     tags={"Pets"},
      *     @OA\Response(
      *         response=200,
      *         description="OK",
      *         @OA\JsonContent(
      *             type="array",
-     *             @OA\Items(ref="#/components/schemas/Pet")
-     *         )
-     *     ),
-     *     @OA\Response(
-     *         response="default",
-     *         description="Error",
-     *         @OA\JsonContent(
-     *             type="object",
-     *             @OA\Property(
-     *                 property="message",
-     *                 type="string",
-     *                 description="Mensaje de error"
-     *             )
-     *         )
+     *             @OA\Items(
+     *                 @OA\Property(
+     *                     property="id",
+     *                     type="integer",
+     *                     description="ID de la mascota."
+     *                 ),
+     *                 @OA\Property(
+     *                     property="name",
+     *                     type="string",
+     *                     description="Nombre de la mascota."
+     *                 )
+     *          )
      *     )
+     * )
      * )
      */
 
@@ -48,7 +50,7 @@ class APIPetController extends Controller
      *     path="/pets/{id}",
      *     summary="Obtener una mascota por su ID",
      *     description="Obtiene una mascota específica almacenada en la base de datos según su ID.",
-     *     tags={"Mascotas"},
+     *     tags={"Pets"},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -62,7 +64,20 @@ class APIPetController extends Controller
      *     @OA\Response(
      *         response=200,
      *         description="OK",
-     *         @OA\JsonContent(ref="#/components/schemas/Pet")
+     *         @OA\JsonContent(
+     *          type="array",
+     *              @OA\Items(
+     *                 @OA\Property(
+     *                     property="id",
+     *                     type="integer",
+     *                     description="ID de la mascota."
+     *                 ),
+     *                 @OA\Property(
+     *                     property="name",
+     *                     type="string",
+     *                     description="Nombre de la mascota."
+     *                 )
+     *          ))
      *     ),
      *     @OA\Response(
      *         response=404,
@@ -78,6 +93,7 @@ class APIPetController extends Controller
      *     )
      * )
      */
+
     public function show(string $id)
     {
         $pet = Pet::find($id);

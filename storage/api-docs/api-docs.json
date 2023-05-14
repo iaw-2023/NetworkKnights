@@ -40,6 +40,104 @@
                     }
                 }
             }
+        },
+        "/rest/pets": {
+            "get": {
+                "tags": [
+                    "Pets"
+                ],
+                "summary": "Obtener todas las mascotas",
+                "description": "Obtiene todas las mascotas almacenadas en la base de datos.",
+                "operationId": "183e8f0af204d375d4c65b2a1911f465",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "description": "ID de la mascota.",
+                                                "type": "integer"
+                                            },
+                                            "name": {
+                                                "description": "Nombre de la mascota.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pets/{id}": {
+            "get": {
+                "tags": [
+                    "Pets"
+                ],
+                "summary": "Obtener una mascota por su ID",
+                "description": "Obtiene una mascota específica almacenada en la base de datos según su ID.",
+                "operationId": "a8e2a6d9d99910bc4d7e910c98ecde6f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la mascota a obtener",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "description": "ID de la mascota.",
+                                                "type": "integer"
+                                            },
+                                            "name": {
+                                                "description": "Nombre de la mascota.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "description": "Mensaje de error",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
