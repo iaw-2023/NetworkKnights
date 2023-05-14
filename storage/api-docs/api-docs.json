@@ -1,0 +1,45 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Adopcion de mascotas",
+        "description": "Esta API puede usarse para obtener información sobre las categorias y mascotas, y también para crear ordenes de adopcion.",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/rest/categories": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Obtiene una lista de todas las categorías existentes.",
+                "description": "Retorna un JSON con la lista de todas las categorías existentes en la base de datos.",
+                "operationId": "7df18fabfa75c3a14abd9bac59df3341",
+                "responses": {
+                    "200": {
+                        "description": "Lista de categorías obtenida correctamente.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "description": "ID de la categoría.",
+                                                "type": "integer"
+                                            },
+                                            "nombre": {
+                                                "description": "Nombre de la categoría.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

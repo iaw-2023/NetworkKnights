@@ -12,7 +12,7 @@ return [
                 /*
                  * Route for accessing api documentation interface
                 */
-                'api' => 'api/documentation',
+                'api' => 'rest/documentation',
             ],
             'paths' => [
                 /*
@@ -61,16 +61,7 @@ return [
              * Middleware allows to prevent unexpected access to API documentation
             */
             'middleware' => [
-                'api' => [
-                    \App\Http\Middleware\EncryptCookies::class,
-                    \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-                    \Illuminate\Session\Middleware\StartSession::class,
-                    \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-                    \App\Http\Middleware\VerifyCsrfToken::class,
-                    \Illuminate\Routing\Middleware\SubstituteBindings::class,
-                    \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
-                    'auth',
-                  ],
+                'api' => [],
                 'asset' => [],
                 'docs' => [],
                 'oauth2_callback' => [],
@@ -148,13 +139,15 @@ return [
              * @note This option overwrites `paths.excludes`
              * @see \OpenApi\scan
             */
-            'exclude' => [],
+            'exclude' => [
+                'auth/*', // excluye todas las rutas que comienzan con "auth/"
+            ],
 
             /*
              * Allows to generate specs either for OpenAPI 3.0.0 or OpenAPI 3.1.0.
              * By default the spec will be in version 3.0.0
              */
-            'open_api_spec_version' => env('L5_SWAGGER_OPEN_API_SPEC_VERSION', "\L5Swagger\Generator"::OPEN_API_DEFAULT_SPEC_VERSION),
+            'open_api_spec_version' => env('L5_SWAGGER_OPEN_API_SPEC_VERSION', \L5Swagger\Generator::OPEN_API_DEFAULT_SPEC_VERSION),
         ],
 
         /*

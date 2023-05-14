@@ -8,17 +8,33 @@ use App\Models\Category;
 
 class APICategoryController extends Controller
 {
-     /**
+      /**
+     * Obtiene una lista de todas las categorías existentes.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     *
      * @OA\Get(
-     *     path="/rest/categorias",
-     *     summary="Retorna las categorías",
-     *     tags={"Categorias"},
+     *     path="/rest/categories",
+     *     tags={"Categories"},
+     *     summary="Obtiene una lista de todas las categorías existentes.",
+     *     description="Retorna un JSON con la lista de todas las categorías existentes en la base de datos.",
      *     @OA\Response(
-     *         response=200,
-     *         description="OK",
+     *         response="200",
+     *         description="Lista de categorías obtenida correctamente.",
      *         @OA\JsonContent(
-     *              type="array",
-     *              @OA\Items(ref="#/components/schemas/Categoria")           
+     *             type="array",
+     *             @OA\Items(
+     *                 @OA\Property(
+     *                     property="id",
+     *                     type="integer",
+     *                     description="ID de la categoría."
+     *                 ),
+     *                 @OA\Property(
+     *                     property="nombre",
+     *                     type="string",
+     *                     description="Nombre de la categoría."
+     *                 )
+     *             )
      *         )
      *     )
      * )
