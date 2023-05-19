@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-//use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,9 +19,13 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap any application services.
+     * @return void
      */
-    public function boot(): void
-    {
-        //Schema:defaultStringLength(191);
-    }
+    
+     public function boot(): void
+     {
+         if (env('APP_ENV') === 'production') {
+             \Illuminate\Support\Facades\URL::forceScheme('https');
+         }
+     }
 }

@@ -15,17 +15,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/home', function () {
+    return view('home');
+})->middleware(['auth', 'verified'])->name('home'); //antes tenia dashboard
+
+//Route::get('/dashboard', function () {
+  //  return view('home'); //antes tenia dashboard
+//})->middleware(['auth', 'verified'])->name('home'); //antes tenia dashboard
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route:: resource('categories', 'App\Http\Controllers\CategoryController');
+    Route:: resource('pets', 'App\Http\Controllers\PetController');
+    Route:: resource('orders', 'App\Http\Controllers\OrderController'); 
 });
 
 require __DIR__.'/auth.php';

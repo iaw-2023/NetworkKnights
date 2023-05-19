@@ -1,0 +1,211 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Adopcion de mascotas",
+        "description": "Esta API puede usarse para obtener información sobre las categorias y mascotas, y también para crear ordenes de adopcion.",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/rest/categories": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Obtiene una lista de todas las categorías existentes.",
+                "description": "Retorna un JSON con la lista de todas las categorías existentes en la base de datos.",
+                "operationId": "7df18fabfa75c3a14abd9bac59df3341",
+                "responses": {
+                    "200": {
+                        "description": "Lista de categorías obtenida correctamente.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "description": "ID de la categoría.",
+                                                "type": "integer"
+                                            },
+                                            "name": {
+                                                "description": "Nombre de la categoría.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/rest/categories/{id}": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Obtener una categoría específica",
+                "description": "Devuelve los detalles de una categoría en particular.",
+                "operationId": "getCategoryById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la categoría a obtener",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Categoría obtenida correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "description": "ID de la categoría.",
+                                                "type": "integer"
+                                            },
+                                            "name": {
+                                                "description": "Nombre de la categoría.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Categoría no encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Categoría no encontrada"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/rest/pets": {
+            "get": {
+                "tags": [
+                    "Pets"
+                ],
+                "summary": "Obtener todas las mascotas",
+                "description": "Obtiene todas las mascotas almacenadas en la base de datos.",
+                "operationId": "183e8f0af204d375d4c65b2a1911f465",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "description": "ID de la mascota.",
+                                                "type": "integer"
+                                            },
+                                            "name": {
+                                                "description": "Nombre de la mascota.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pets/{id}": {
+            "get": {
+                "tags": [
+                    "Pets"
+                ],
+                "summary": "Obtener una mascota por su ID",
+                "description": "Obtiene una mascota específica almacenada en la base de datos según su ID.",
+                "operationId": "a8e2a6d9d99910bc4d7e910c98ecde6f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la mascota a obtener",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "description": "ID de la mascota.",
+                                                "type": "integer"
+                                            },
+                                            "name": {
+                                                "description": "Nombre de la mascota.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "description": "Mensaje de error",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
