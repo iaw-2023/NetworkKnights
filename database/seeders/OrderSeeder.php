@@ -23,7 +23,7 @@ class OrderSeeder extends Seeder
             'id_user' => '1'            
         ]);
         DB::table('orders')->insert([
-            'id_user' => '2'            
+            'id_user' => '1'            
         ]);
         DB::table('orders')->insert([
             'id_user' => '1'         
