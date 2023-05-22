@@ -9,16 +9,15 @@
     <input id="name" name="name" type="text" class="form-control" tabindex="2">
   </div>
   <div class="mb-3">
-  <label style="color:#ffffff" for="" class="form-label">Sex</label>
-    
-    <select name='sex'class="form-select">
+  <label style="color:#ffffff" for="" class="form-label">Sex</label>    
+    <select id="sex" name='sex'class="form-select">
         <option value="female"> Female </option>  
         <option value="male"> Male </option>  
     </select>
   </div>
   <div class="mb-3">
     <label style="color:#ffffff" for="" class="form-label">Categoria</label>
-    <select id="id_categoria" name="id_categoria" class="form-select">
+    <select id="id_category" name="id_category" class="form-select">
       @foreach ($categorias as $categoria)
         <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
       @endforeach
