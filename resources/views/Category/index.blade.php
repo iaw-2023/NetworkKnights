@@ -3,7 +3,7 @@
 <h1> Categorias </h1>
 <a href="categories/create" class="btn btn-primary">CREAR</a>
 
-<table class="table text-white mt-4">
+<table class="table table-dark table-striped mt-4">
     <thead class="thead-dark">
         <tr>
             <!--<th scope="col">ID</th> -->

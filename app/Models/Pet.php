@@ -12,4 +12,8 @@ class Pet extends Model
     public function category(){
         return $this->belongsTo(Category::class, 'id_category');
     }
+
+    public function pet(){
+        return $this->belongsTo(Pet::class, 'id_order');
+    }
 }

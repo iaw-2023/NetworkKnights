@@ -15,6 +15,7 @@ class PetSeeder extends Seeder
     {
         DB::table('pets')->insert([
             'id_category' => '1',
+            'id_order' =>'1',
             'name' => 'Luna',
             'sex' => 'female',  
             'image' => 'imagen1'          
@@ -22,6 +23,7 @@ class PetSeeder extends Seeder
 
         DB::table('pets')->insert([
             'id_category' => '2',
+            'id_order' =>'2',
             'name' => 'Campanita',
             'sex' => 'female',
             'image' => 'imagen2'
@@ -30,6 +32,7 @@ class PetSeeder extends Seeder
 
         DB::table('pets')->insert([
             'id_category' => '1',
+            'id_order' =>'3',
             'name' => 'Toto',
             'sex' => 'male',
             'image' => 'imagen3'
@@ -38,6 +41,7 @@ class PetSeeder extends Seeder
 
         DB::table('pets')->insert([
             'id_category' => '2',
+            'id_order' =>'4',
             'name' => 'Doscientos',
             'sex' => 'male',
             'image' => 'imagen4'
@@ -46,6 +50,7 @@ class PetSeeder extends Seeder
 
         DB::table('pets')->insert([
             'id_category' => '3',
+            'id_order' =>'5',
             'name' => 'Orejas',
             'sex' => 'male',
             'image' => 'imagen5'

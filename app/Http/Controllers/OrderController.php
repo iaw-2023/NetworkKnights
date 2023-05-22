@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Pet;
 
 class OrderController extends Controller
 {
@@ -13,7 +14,8 @@ class OrderController extends Controller
     public function index()
     {
         $ordenes = Order::all();
-        return view ('Order.index')->with('ordenes',$ordenes);
+        $pets = Pet::all();
+        return view ('Order.index')->with('ordenes',$ordenes)->with('pets', $pets);
 
 
     }

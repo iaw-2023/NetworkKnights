@@ -1,0 +1,39 @@
+body {
+    background-image: url('https://www.webconsultas.com/sites/default/files/styles/cabecera_noticia/public/noticias/web-adopcion-mascotas.jpg?itok=L-CwVak0');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #ffbf00;
+    padding-top: 100px;
+  }
+
+h1{
+    color: white; 
+    text-shadow: 2px 2px 4px #000000
+}
+
+h2{
+    color: white; 
+    text-shadow: 2px 2px 4px #000000
+}
+
+.home-page {
+    padding-top: 20px;
+}
+  
+.nav-bar-page{
+    .navbar-nav .nav-link:hover {
+    color: #ffbf00 !important;
+    }
+}
+  
+.navbar-brand span {
+    font-size: 1.2rem;
+    margin-left: 10px;
+    font-weight: bold;
+}
+    
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
