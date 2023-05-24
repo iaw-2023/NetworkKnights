@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/categories', [APICategoryController:: class, 'index']);
 Route::get('/categories/{id}', [APICategoryController:: class, 'show']);
 
-Route::get('/orders',[APIOrderController::class, 'index']);
+Route::post('/orders',[APIOrderController::class, 'store']);
 
 Route::get('/pets',[APIPetController::class, 'index']);
 Route::get('/pets/{id}',[APIPetController::class, 'show']);

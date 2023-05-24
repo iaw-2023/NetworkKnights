@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid ">
     <a class="navbar-brand" href="/home">
-      <img src="https://i.pinimg.com/originals/8d/25/a4/8d25a49f62118c47e63be8c6f568eb46.png" width="65" alt="65">Mascotas en adopcion</a>
-    
+      <img src="https://images.vexels.com/media/users/3/201898/isolated/preview/55be9a1a39abff39bc3596e8ddd224cd-trazo-de-huella-de-perro-azul.png" width="40" alt="40"></a>
+      
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

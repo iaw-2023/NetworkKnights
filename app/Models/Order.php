@@ -9,6 +9,11 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+      'id',
+      // otros atributos fillable aquí
+  ];
+
    public function client(){
      return $this->belongsTo(Client::class, 'id_client');
     }

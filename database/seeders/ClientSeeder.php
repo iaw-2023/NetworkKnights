@@ -18,8 +18,8 @@ class ClientSeeder extends Seeder
             'role' => 'client',
             'email' => 'client1@client.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('1234'),
-            'remember_token' => 'abcd',
+            // 'password' => bcrypt('1234'),
+            // 'remember_token' => 'abcd',
             
         ]);
 
@@ -28,8 +28,8 @@ class ClientSeeder extends Seeder
             'role' => 'client',
             'email' => 'client2@client.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('6789'),
-            'remember_token' => 'abcd',
+            //'password' => bcrypt('6789'),
+            // 'remember_token' => 'abcd',
         ]);
 
         DB::table('clients')->insert([
@@ -37,8 +37,8 @@ class ClientSeeder extends Seeder
             'role' => 'client',
             'email' => 'client3@client.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('6789'),
-            'remember_token' => 'abcd',
+            //'password' => bcrypt('6789'),
+            //'remember_token' => 'abcd',
         ]);
 
 

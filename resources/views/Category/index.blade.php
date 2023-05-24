@@ -6,7 +6,7 @@
 
 @section('contenido')
 <h1> Categorias </h1>
-<a href="categories/create" class="btn btn-primary">CREAR</a>
+<a href="categories/create" class="btn btn-primary right-align">CREAR</a>
 
 <table id= "categorias" class="table table-dark table-striped mt-4">
     <thead class="thead-dark">

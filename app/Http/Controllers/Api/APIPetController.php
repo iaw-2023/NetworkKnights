@@ -15,7 +15,7 @@ class APIPetController extends Controller
      * @OA\Get(
      *     path="/rest/pets",
      *     summary="Obtener todas las mascotas",
-     *     description="Obtiene todas las mascotas almacenadas en la base de datos.",
+     *     description="Obtiene todas las mascotas que estan disponibles para adoptar.",
      *     tags={"Pets"},
      *     @OA\Response(
      *         response=200,
@@ -39,16 +39,25 @@ class APIPetController extends Controller
      * )
      */
 
-    public function index()
-    {
-        $pets = Pet::with('category')->get()->map(function ($pet) {
-            $petData = $pet->only(['id', 'name', 'sex', 'image']);
-            $petData['category_name'] = $pet->category->name ?? null;
-            return $petData;
-        });
-    
+    public function index(){
+        $pets = Pet::with('category')
+            ->whereNull('id_order')
+            ->get()
+            ->map(function ($pet) {
+                $petData = $pet->only(['id', 'name', 'sex', 'image']);
+                $petData['category_name'] = $pet->category->name ?? null;
+                return $petData;
+            });
+
+        if ($pets->isEmpty()) {
+            return response()->json(['No hay mascotas disponibles para adoptar']);
+        }
+
         return response()->json($pets);
-    }
+    }  
+     
+     
+     
 
     /**
      * @OA\Get(
