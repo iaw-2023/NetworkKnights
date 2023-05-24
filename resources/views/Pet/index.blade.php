@@ -19,7 +19,7 @@
         @foreach ($pets as $pet)
         <tr>
             <td>{{$pet -> name}}</td>
-            <td>{{$pet -> sex}}</td>
+            <td>{{ $pet->sex === 'female' ? 'Hembra' : 'Macho' }}</td>
             <td>{{$pet -> category -> name}}</td>
             <td>{{ $pet['id_order'] ? 'No' : 'Sí' }}</td>
 
