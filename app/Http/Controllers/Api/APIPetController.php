@@ -41,7 +41,12 @@ class APIPetController extends Controller
 
     public function index()
     {
-        $pets = Pet::all();
+        $pets = Pet::with('category')->get()->map(function ($pet) {
+            $petData = $pet->only(['id', 'name', 'sex', 'image']);
+            $petData['category_name'] = $pet->category->name ?? null;
+            return $petData;
+        });
+    
         return response()->json($pets);
     }
 
@@ -94,12 +99,16 @@ class APIPetController extends Controller
      * )
      */
 
-    public function show(string $id)
-    {
-        $pet = Pet::find($id);
-        if (!$pet) {
-            return response()->json(['error' => 'Mascota no encontrada'], 404);
-        }
-        return response()->json($pet);
+     public function show(string $id)
+{
+    $pet = Pet::with('category')->find($id);
+    if (!$pet) {
+        return response()->json(['error' => 'Mascota no encontrada'], 404);
     }
+    
+    $petData = $pet->only(['id', 'name', 'sex', 'image']);
+    $petData['category_name'] = $pet->category->name ?? null;
+    
+    return response()->json($petData);
+}
 }

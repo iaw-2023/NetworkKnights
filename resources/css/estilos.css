@@ -6,6 +6,10 @@ body {
     padding-top: 100px;
   }
 
+  .right-align {
+    float: right;
+}
+
 h1{
     color: white; 
     text-shadow: 2px 2px 4px #000000
@@ -17,7 +21,7 @@ h2{
 }
 
 .home-page {
-    padding-top: 20px;
+    color: white; 
 }
   
 .nav-bar-page{

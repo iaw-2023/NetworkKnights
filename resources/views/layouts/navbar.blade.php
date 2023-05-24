@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid ">
-    <a class="navbar-brand" href="/home"><img src="https://i.pinimg.com/originals/8d/25/a4/8d25a49f62118c47e63be8c6f568eb46.png" width="65" alt="65">Mascotas en adopcion</a>
+    <a class="navbar-brand" href="/home">
+      <img src="https://i.pinimg.com/originals/8d/25/a4/8d25a49f62118c47e63be8c6f568eb46.png" width="65" alt="65">Mascotas en adopcion</a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,7 +22,7 @@
 
       <li class="navbar-nav nav-item dropdown inline ">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              {{ Auth::user()->name }}
+              {{Auth::user()->name }}
           </a>
           <ul class="dropdown-menu dropdown-menu-end bg-secondary px-1 " aria-labelledby="bd-theme">
               <li>

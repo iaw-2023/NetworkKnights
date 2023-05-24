@@ -14,9 +14,9 @@ class ClientSeeder extends Seeder
     public function run(): void
     {
         DB::table('clients')->insert([
-            'name' => 'admin1',
-            'role' => 'admin',
-            'email' => 'admin1@admin.com',
+            'name' => 'Juan Perez',
+            'role' => 'client',
+            'email' => 'client1@client.com',
             'email_verified_at' => now(),
             'password' => bcrypt('1234'),
             'remember_token' => 'abcd',
@@ -24,9 +24,18 @@ class ClientSeeder extends Seeder
         ]);
 
         DB::table('clients')->insert([
-            'name' => 'admin2',
-            'role' => 'admin',
-            'email' => 'admin2@admin.com',
+            'name' => 'Florencia Sanchez',
+            'role' => 'client',
+            'email' => 'client2@client.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('6789'),
+            'remember_token' => 'abcd',
+        ]);
+
+        DB::table('clients')->insert([
+            'name' => 'Roberto Gomez',
+            'role' => 'client',
+            'email' => 'client3@client.com',
             'email_verified_at' => now(),
             'password' => bcrypt('6789'),
             'remember_token' => 'abcd',

@@ -61,7 +61,6 @@ class CategoryController extends Controller
     {
         $categoria = Category::find($id);
 
-        $categoria->id = $request->get('id');
         $categoria->name = $request->get('name');
 
         $categoria->save();

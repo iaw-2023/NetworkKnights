@@ -42,6 +42,7 @@ class APICategoryController extends Controller
     public function index()
     {
         $categorias = Category::all();
+        $categorias->setHidden(['created_at', 'updated_at']);
         return response()->json($categorias);
     }
 

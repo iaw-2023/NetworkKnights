@@ -16,7 +16,7 @@
         @foreach($ordenes as $orden)
         <tr>
             <td> {{ $orden-> id}} </td>
-            <td> {{ $orden-> user-> name}} </td>
+            <td> {{ $orden -> client -> name}} </td>
             <td>
             @foreach($pets as $pet)
                 @if($pet->id_order == $orden->id)

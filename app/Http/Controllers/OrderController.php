@@ -16,8 +16,6 @@ class OrderController extends Controller
         $ordenes = Order::all();
         $pets = Pet::all();
         return view ('Order.index')->with('ordenes',$ordenes)->with('pets', $pets);
-
-
     }
 
     /**
@@ -36,7 +34,7 @@ class OrderController extends Controller
         $ordenes = new Order();
 
         $ordenes->id = $request->get('id');
-        $ordenes -> id_user = $request->get('id_user');
+        $ordenes -> id_client = $request->get('id_client');
 
         $ordenes->save();
 

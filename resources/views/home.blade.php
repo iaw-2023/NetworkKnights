@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="home-page">
+<div>
 <h1>{{ __("Bienvenid@") }}, {{ Auth::user()->name }}!</h1>
 </div>
 
