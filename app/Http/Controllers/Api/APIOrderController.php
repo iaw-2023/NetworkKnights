@@ -21,35 +21,39 @@ class APIOrderController extends Controller
 
         // Verifico existe un cliente con ese mail en la base de datos
         $client = Client::where('email', $email)->first();
-
-        // Si el usuario no existe, lo creo
-        if (!$client) {
-            $name = strstr($email, '@', true);
-            $client = Client::create([
-                'name' => $name,
-                'email' => $email,
-            ]);
-        }
+        
+            // Si el usuario no existe, lo creo
+            if (!$client) {
+                $name = strstr($email, '@', true);
+                $client = Client::create([
+                    'name' => $name,
+                    'email' => $email,
+                ]);
+                echo $client;
+                $client->save;       
+                echo "despues de guardar";
+            }
 
         // Obtener el ID de la mascota que desea adoptar
         $petId = $request->input('id_pet');
 
-        // Verificar si la mascota existe y su campo 'id_order' es nulo
-        $pet = Pet::where('id', $petId)
-            ->whereNull('id_order')
-            ->first();
-
-        if (!$pet) {
-            return response()->json(['La mascota no existe o ya ha sido adoptada'], 404);
-        }
+            // Verificar si la mascota existe y su campo 'id_order' es nulo
+            $pet = Pet::where('id', $petId)
+                ->whereNull('id_order')
+                ->first();
+            
+            if (!$pet) {
+                return response()->json(['La mascota no existe o ya ha sido adoptada'], 404);
+            }
 
         // Crear la nueva orden
+                 
         $order = Order::create([
             'id_client' => $client->id
-            // Otros campos de la orden si es necesario
         ]);
+        $order->save();
 
-        // Asignar el ID de la orden al campo 'id_order' de la mascota
+        // Asignar el ID de la orden al campo 'id_order' de la mascota que estaba en null
         $pet->id_order = $order->id;
         $pet->save();
 

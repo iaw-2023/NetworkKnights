@@ -10,9 +10,9 @@ class Client extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'email',
         'name'
-        // otros atributos fillable aquí
     ];
 
     public $incrementing = true;

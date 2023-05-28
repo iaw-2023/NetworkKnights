@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Pet;
 use App\Models\Category;
+use Exception;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class PetController extends Controller
 {
@@ -32,14 +35,30 @@ class PetController extends Controller
      */
     public function store(Request $request)
     {
-        $pets = new Pet();
+        $imageUrl ="";
+        if ($request->hasFile('image')) {
+            // Obtener el archivo de imagen del formulario
+            $image = $request->file('image');
+    
+            // Procesar y almacenar la imagen en Cloudinary
+            $uploadedImage = $image->storeOnCloudinary();
+        
+            // Obtener la URL de la imagen en Cloudinary
+            $imageUrl = $uploadedImage->getSecurePath();
+        
+            // Guardar la URL de la imagen en tu modelo o base de datos
+            // ...
+        }
 
-        $pets -> name = $request->get('name');
-        $pets -> sex = $request->get('sex');
-        $pets -> id_category = $request->get('id_category');
+        $pet = new Pet();
 
-        $pets -> save();
-
+        $pet -> name = $request->get('name');
+        $pet -> sex = $request->get('sex');
+        $pet -> id_category = $request->get('id_category');
+        $pet->image = $imageUrl;
+        //$pet->imageId = $uploadedFile->getPublicId();
+ 
+        $pet -> save();
         return redirect('/pets');
     }
 

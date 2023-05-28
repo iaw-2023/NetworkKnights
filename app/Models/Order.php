@@ -11,8 +11,9 @@ class Order extends Model
 
     protected $fillable = [
       'id',
+      'id_client'
       // otros atributos fillable aquí
-  ];
+    ];
 
    public function client(){
      return $this->belongsTo(Client::class, 'id_client');
