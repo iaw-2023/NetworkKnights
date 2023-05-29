@@ -17,7 +17,8 @@ return new class extends Migration
             $table->unsignedInteger('id_order')->nullable();
             $table->string('name');
             $table->string('sex');
-            $table->string('image')->nullable();
+            $table->string('image');
+            $table->string('id_image')->nullable();
             $table->timestamps();
 
             $table->foreign('id_order')->references('id')->on('orders')->onUpdate('cascade')->onDelete('cascade');

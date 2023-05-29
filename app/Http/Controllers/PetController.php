@@ -41,7 +41,7 @@ class PetController extends Controller
             $image = $request->file('image');
     
             // Procesar y almacenar la imagen en Cloudinary
-            $uploadedImage = $image->storeOnCloudinary();
+            $uploadedImage = $image->storeOnCloudinary('/pets');
         
             // Obtener la URL de la imagen en Cloudinary
             $imageUrl = $uploadedImage->getSecurePath();
@@ -56,7 +56,7 @@ class PetController extends Controller
         $pet -> sex = $request->get('sex');
         $pet -> id_category = $request->get('id_category');
         $pet->image = $imageUrl;
-        //$pet->imageId = $uploadedFile->getPublicId();
+        $pet->id_image = $uploadedImage->getPublicId();
  
         $pet -> save();
         return redirect('/pets');
@@ -87,13 +87,24 @@ class PetController extends Controller
     {
         $pet = Pet::find($id);
 
-        $pet -> name = $request->get('name');
-        $pet -> sex = $request->get('sex');
-        $pet -> id_category = $request->get('id_category');
+        $pet->name = $request->input('name');
+        $pet->sex = $request->input('sex');
+        $pet->id_category = $request->input('id_category');
 
-        $pet -> save();
-
+            if($request->has('image')){
+                if($pet->id_image != null){
+                    Cloudinary::destroy($pet->id_image);  
+                }
+                $image = $request->file('image');
+                $uploadedImage = $image->storeOnCloudinary('/pets');
+                $pet->image = $uploadedImage->getSecurePath();
+                $pet->id_image = $uploadedImage->getPublicId();
+            }
+        $pet->save();
+        
+        
         return redirect('/pets');
+    
     }
 
     /**

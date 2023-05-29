@@ -21,22 +21,49 @@ class APIPetController extends Controller
      *         response=200,
      *         description="OK",
      *         @OA\JsonContent(
-     *             type="array",
-     *             @OA\Items(
-     *                 @OA\Property(
-     *                     property="id",
-     *                     type="integer",
-     *                     description="ID de la mascota."
-     *                 ),
-     *                 @OA\Property(
-     *                     property="name",
-     *                     type="string",
-     *                     description="Nombre de la mascota."
-     *                 )
-     *          )
-     *     )
-     * )
-     * )
+    *             type="array",
+    *             @OA\Items(
+    *                 @OA\Property(
+    *                     property="id",
+    *                     type="integer",
+    *                     description="ID de la mascota."
+    *                 ),
+    *                 @OA\Property(
+    *                     property="name",
+    *                     type="string",
+    *                     description="Nombre de la mascota."
+    *                 ),
+    *                 @OA\Property(
+    *                     property="image",
+    *                     type="string",
+    *                     description="URL de la imagen de la mascota."
+    *                 ),
+    *                 @OA\Property(
+    *                     property="sex",
+    *                     type="string",
+    *                     description="Sexo de la mascota."
+    *                 ),
+    *                 @OA\Property(
+    *                     property="category_name",
+    *                     type="string",
+    *                     description="Nombre de la categoría de la mascota."
+    *                 )
+    *             )
+    *         )
+    *     ),
+    *       @OA\Response(
+    *         response=204,
+    *         description="No Content",
+    *         @OA\JsonContent(
+    *             @OA\Property(
+    *                 property="message",
+    *                 type="string",
+    *                 example="No hay mascotas disponibles para adoptar."
+    *             )
+    *         )
+    *     )
+    * )
+     * 
      */
 
     public function index(){
@@ -61,7 +88,7 @@ class APIPetController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/pets/{id}",
+     *     path="rest/pets/{id}",
      *     summary="Obtener una mascota por su ID",
      *     description="Obtiene una mascota específica almacenada en la base de datos según su ID.",
      *     tags={"Pets"},
@@ -79,40 +106,56 @@ class APIPetController extends Controller
      *         response=200,
      *         description="OK",
      *         @OA\JsonContent(
-     *          type="array",
-     *              @OA\Items(
-     *                 @OA\Property(
-     *                     property="id",
-     *                     type="integer",
-     *                     description="ID de la mascota."
-     *                 ),
-     *                 @OA\Property(
-     *                     property="name",
-     *                     type="string",
-     *                     description="Nombre de la mascota."
-     *                 )
-     *          ))
+    *             type="array",
+    *             @OA\Items(
+    *                 @OA\Property(
+    *                     property="id",
+    *                     type="integer",
+    *                     description="ID de la mascota."
+    *                 ),
+    *                 @OA\Property(
+    *                     property="name",
+    *                     type="string",
+    *                     description="Nombre de la mascota."
+    *                 ),
+    *                 @OA\Property(
+    *                     property="image",
+    *                     type="string",
+    *                     description="URL de la imagen de la mascota."
+    *                 ),
+    *                 @OA\Property(
+    *                     property="sex",
+    *                     type="string",
+    *                     description="Sexo de la mascota."
+    *                 ),
+    *                 @OA\Property(
+    *                     property="category_name",
+    *                     type="string",
+    *                     description="Nombre de la categoría de la mascota."
+    *                 )
+    *             )
+    *         )
      *     ),
      *     @OA\Response(
      *         response=404,
      *         description="No encontrado",
      *         @OA\JsonContent(
-     *             type="object",
      *             @OA\Property(
      *                 property="error",
      *                 type="string",
-     *                 description="Mensaje de error"
+     *                 example="Mascota no encontrada"
      *             )
      *         )
      *     )
      * )
+     * 
      */
 
      public function show(string $id)
 {
     $pet = Pet::with('category')->find($id);
     if (!$pet) {
-        return response()->json(['error' => 'Mascota no encontrada'], 404);
+        return response()->json(['Mascota no encontrada'], 404);
     }
     
     $petData = $pet->only(['id', 'name', 'sex', 'image']);

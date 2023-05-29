@@ -109,13 +109,68 @@
                 ]
             }
         },
+        "/rest/orders": {
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Almacenar una nueva orden",
+                "description": "Almacena una nueva orden en la base de datos.",
+                "operationId": "1aec7fa0f0c3126e8dd032f623b28aa4",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "description": "Correo electrónico del cliente.",
+                                        "type": "string"
+                                    },
+                                    "id_pet": {
+                                        "description": "ID de la mascota que se desea adoptar.",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Orden creada con éxito.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "description": "Mensaje de éxito.",
+                                            "type": "string"
+                                        },
+                                        "order_id": {
+                                            "description": "ID de la orden creada.",
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "La mascota no existe o ya ha sido adoptada."
+                    }
+                }
+            }
+        },
         "/rest/pets": {
             "get": {
                 "tags": [
                     "Pets"
                 ],
                 "summary": "Obtener todas las mascotas",
-                "description": "Obtiene todas las mascotas almacenadas en la base de datos.",
+                "description": "Obtiene todas las mascotas que estan disponibles para adoptar.",
                 "operationId": "183e8f0af204d375d4c65b2a1911f465",
                 "responses": {
                     "200": {
@@ -133,6 +188,18 @@
                                             "name": {
                                                 "description": "Nombre de la mascota.",
                                                 "type": "string"
+                                            },
+                                            "image": {
+                                                "description": "URL de la imagen de la mascota.",
+                                                "type": "string"
+                                            },
+                                            "sex": {
+                                                "description": "Sexo de la mascota.",
+                                                "type": "string"
+                                            },
+                                            "category_name": {
+                                                "description": "Nombre de la categoría de la mascota.",
+                                                "type": "string"
                                             }
                                         },
                                         "type": "object"
@@ -140,18 +207,34 @@
                                 }
                             }
                         }
+                    },
+                    "204": {
+                        "description": "No Content",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "No hay mascotas disponibles para adoptar."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/pets/{id}": {
+        "rest/pets/{id}": {
             "get": {
                 "tags": [
                     "Pets"
                 ],
                 "summary": "Obtener una mascota por su ID",
                 "description": "Obtiene una mascota específica almacenada en la base de datos según su ID.",
-                "operationId": "a8e2a6d9d99910bc4d7e910c98ecde6f",
+                "operationId": "13e2a670ae5a1011f19fc5040c0953b2",
                 "parameters": [
                     {
                         "name": "id",
@@ -180,6 +263,18 @@
                                             "name": {
                                                 "description": "Nombre de la mascota.",
                                                 "type": "string"
+                                            },
+                                            "image": {
+                                                "description": "URL de la imagen de la mascota.",
+                                                "type": "string"
+                                            },
+                                            "sex": {
+                                                "description": "Sexo de la mascota.",
+                                                "type": "string"
+                                            },
+                                            "category_name": {
+                                                "description": "Nombre de la categoría de la mascota.",
+                                                "type": "string"
                                             }
                                         },
                                         "type": "object"
@@ -195,8 +290,8 @@
                                 "schema": {
                                     "properties": {
                                         "error": {
-                                            "description": "Mensaje de error",
-                                            "type": "string"
+                                            "type": "string",
+                                            "example": "Mascota no encontrada"
                                         }
                                     },
                                     "type": "object"

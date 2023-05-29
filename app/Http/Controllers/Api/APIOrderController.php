@@ -12,8 +12,49 @@ class APIOrderController extends Controller
 {
 
     /**
-     * Store a newly created resource in storage.
-     */
+ * @OA\Post(
+ *     path="/rest/orders",
+ *     summary="Almacenar una nueva orden",
+ *     description="Almacena una nueva orden en la base de datos.",
+ *     tags={"Orders"},
+ *     @OA\RequestBody(
+ *         required=true,
+ *         @OA\JsonContent(
+ *             @OA\Property(
+ *                 property="email",
+ *                 type="string",
+ *                 description="Correo electrónico del cliente."
+ *             ),
+ *             @OA\Property(
+ *                 property="id_pet",
+ *                 type="integer",
+ *                 description="ID de la mascota que se desea adoptar."
+ *             )
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description="Orden creada con éxito.",
+ *         @OA\JsonContent(
+ *             @OA\Property(
+ *                 property="message",
+ *                 type="string",
+ *                 description="Mensaje de éxito."
+ *             ),
+ *             @OA\Property(
+ *                 property="order_id",
+ *                 type="integer",
+ *                 description="ID de la orden creada."
+ *             )
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=404,
+ *         description="La mascota no existe o ya ha sido adoptada."
+ *     )
+ * )
+ */
+
     public function store(Request $request)
     {
         // Obtengo el correo electrónico del request
