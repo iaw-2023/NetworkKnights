@@ -301,6 +301,80 @@
                     }
                 }
             }
+        },
+        "/rest/pets/category/{categoryName}": {
+            "get": {
+                "tags": [
+                    "Pets"
+                ],
+                "summary": "Obtener mascotas por categoría",
+                "description": "Obtiene todas las mascotas de una categoría específica.",
+                "operationId": "3800ae3b2e55cb3b3c3b8de1e97d7089",
+                "parameters": [
+                    {
+                        "name": "categoryName",
+                        "in": "path",
+                        "description": "Nombre de la categoría",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "description": "ID de la mascota.",
+                                                "type": "integer"
+                                            },
+                                            "name": {
+                                                "description": "Nombre de la mascota.",
+                                                "type": "string"
+                                            },
+                                            "image": {
+                                                "description": "URL de la imagen de la mascota.",
+                                                "type": "string"
+                                            },
+                                            "sex": {
+                                                "description": "Sexo de la mascota.",
+                                                "type": "string"
+                                            },
+                                            "category_name": {
+                                                "description": "Nombre de la categoría de la mascota.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Categoría no encontrada"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -23,6 +23,7 @@ Route::post('/orders',[APIOrderController::class, 'store']);
 
 Route::get('/pets',[APIPetController::class, 'index']);
 Route::get('/pets/{id}',[APIPetController::class, 'show']);
+Route::get('/pets/category/{categoryName}',[APIPetController::class,'getPetsByCategory']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
