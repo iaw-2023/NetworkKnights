@@ -13,6 +13,8 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Solicitante</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Correo</th>
             <th scope="col">Mascota</th>
 
             <th scope="col">Accions</th>
@@ -22,11 +24,13 @@
             @foreach($ordenes as $orden)
             <tr>
                 <td> {{ $orden-> id}} </td>
-                <td> {{ $orden -> client -> name}} </td>
+                <td> {{ $orden -> client -> name}} {{ $orden -> client -> surname}}</td>
+                <td> {{ $orden-> client -> address}} </td>
+                <td> {{ $orden-> client -> email}} </td>
                 <td>
                 @foreach($pets as $pet)
                     @if($pet->id_order == $orden->id)
-                        {{ $pet->name }},{{ $pet -> category -> name}}
+                        {{ $pet->name }}, {{ $pet -> category -> name}}
                     @endif
                 @endforeach
             </td>

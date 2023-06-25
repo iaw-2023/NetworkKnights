@@ -39,7 +39,6 @@ class PetSeeder extends Seeder
 
         DB::table('pets')->insert([
             'id_category' => '2',
-            'id_order' =>'4',
             'name' => 'Doscientos',
             'sex' => 'male',
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtkfMX-5beCWv5mog_zTZz4bXiMCxsoZIzig&usqp=CAU'

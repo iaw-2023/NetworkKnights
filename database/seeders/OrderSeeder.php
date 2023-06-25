@@ -19,14 +19,5 @@ class OrderSeeder extends Seeder
         DB::table('orders')->insert([
             'id_client' => '2'          
         ]);
-        DB::table('orders')->insert([
-            'id_client' => '3'            
-        ]);
-        DB::table('orders')->insert([
-            'id_client' => '2'            
-        ]);
-        DB::table('orders')->insert([
-            'id_client' => '1'         
-        ]);
     }
 }
