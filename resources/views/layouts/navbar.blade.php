@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid ">
-    <a class="navbar-brand" href="/home">Mascotas en adopcion</a>
+    <a class="navbar-brand" href="/home">
+      <img src="https://images.vexels.com/media/users/3/201898/isolated/preview/55be9a1a39abff39bc3596e8ddd224cd-trazo-de-huella-de-perro-azul.png" width="40" alt="40"></a>
+      
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,7 +23,7 @@
 
       <li class="navbar-nav nav-item dropdown inline ">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              {{ Auth::user()->name }}
+              {{Auth::user()->name }}
           </a>
           <ul class="dropdown-menu dropdown-menu-end bg-secondary px-1 " aria-labelledby="bd-theme">
               <li>
@@ -40,6 +43,7 @@
           </ul>
       </li
       
-   </div>
+    </div>
   </div>
+  
 </nav>

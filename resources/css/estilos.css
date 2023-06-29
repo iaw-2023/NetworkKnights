@@ -1,0 +1,69 @@
+
+body {
+    background-image: url('https://thumbs.dreamstime.com/b/fondo-colorido-incons%C3%BAtil-de-los-gatos-y-perros-del-garabato-123270308.jpg');
+    background-repeat: repeat;
+    background-size: cover;
+    background-color: white;
+    padding-top: 100px;
+  }
+
+  .right-align {
+    float: right;
+}
+
+
+#categorias th,
+#categorias td,
+#mascotas th,
+#mascotas td,
+#ordenes th,
+#ordenes td {
+  color: white;
+}
+
+
+h1{
+    color: white; 
+    text-shadow: 2px 2px 4px #000000
+}
+
+h2{
+    color: white;
+    size: 4;
+    text-shadow: 2px 2px 4px #000000
+}
+
+.home-page {
+    color: white; 
+}
+
+  
+.navbar-brand span {
+    font-size: 1.2rem;
+    margin-left: 10px;
+    font-weight: bold;
+}
+    
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.black-rounded-div {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(51, 50, 50, 0.7);
+    padding: 1rem; /* Equivalente a p-4 en Tailwind CSS */
+    border-radius: 0.5rem; /* Equivalente a sm:rounded-lg en Tailwind CSS en tamaños pequeños */
+    width: 100%; /* Ocupar el ancho máximo */
+    color: #ffffff;
+  }
+  
+  @media (min-width: 640px) {
+    .black-rounded-div {
+      padding: 2rem; /* Equivalente a sm:p-8 en Tailwind CSS */
+      border-radius: 1rem; /* Equivalente a sm:rounded-lg en Tailwind CSS en tamaños medianos y grandes */
+    }
+  }
+  

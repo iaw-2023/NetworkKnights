@@ -9,7 +9,18 @@ class Pet extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'image'
+    ];
     public function category(){
         return $this->belongsTo(Category::class, 'id_category');
+    }
+
+    public function pet(){
+        return $this->belongsTo(Pet::class, 'id_order');
+    }
+
+    public function getCategoryNameAttribute(){
+        return $this->category->name ?? null;
     }
 }

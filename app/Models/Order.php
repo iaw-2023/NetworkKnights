@@ -9,7 +9,13 @@ class Order extends Model
 {
     use HasFactory;
 
-   public function user(){
-     return $this->belongsTo(Client::class, 'id_user');
+    protected $fillable = [
+      'id',
+      'id_client'
+      // otros atributos fillable aquí
+    ];
+
+   public function client(){
+     return $this->belongsTo(Client::class, 'id_client');
     }
 }

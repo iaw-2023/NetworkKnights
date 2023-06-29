@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'id',
+        'email',
+        'name'
+    ];
+
+    public $incrementing = true;
+
+    public function client(){
+        return $this->belongsTo(Client::class, 'id_client');
+       }
 }

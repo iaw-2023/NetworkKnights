@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Pet;
 
 class OrderController extends Controller
 {
@@ -13,9 +14,8 @@ class OrderController extends Controller
     public function index()
     {
         $ordenes = Order::all();
-        return view ('Order.index')->with('ordenes',$ordenes);
-
-
+        $pets = Pet::all();
+        return view ('Order.index')->with('ordenes',$ordenes)->with('pets', $pets);
     }
 
     /**
@@ -34,7 +34,7 @@ class OrderController extends Controller
         $ordenes = new Order();
 
         $ordenes->id = $request->get('id');
-        $ordenes -> id_user = $request->get('id_user');
+        $ordenes -> id_client = $request->get('id_client');
 
         $ordenes->save();
 
@@ -79,6 +79,18 @@ class OrderController extends Controller
     public function destroy(string $id)
     {
         $order = Order::find($id);
+    
+        if (!$order) {
+            return response()->json(['La orden no existe'], 404);
+        }
+
+        $pet = Pet::where('id_order', $order->id)->first();
+        
+        if ($pet) {
+            $pet->id_order = null;
+            $pet->save();
+        }
+        
         $order->delete();
 
         return redirect('/orders');
