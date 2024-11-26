@@ -12,6 +12,9 @@
         <li><h2>Órdenes</h2></li>
             <p>Podras ver todas las ordenes que fueron realizadas y eliminarlas.</p>
     </ul>
+
+    <img src= {{ $meme }} alt="Meme random">
+
 </div>
 
 @endsection
