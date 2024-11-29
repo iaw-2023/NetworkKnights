@@ -13,11 +13,14 @@
           <a class="nav-link active" aria-current="page" href="/categories">Categorias</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/pets">Mascotas</a>
+        <a class="nav-link active" aria-current="page" href="/pets">Mascotas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/orders">Ordenes</a>
-        </li>         
+        <a class="nav-link active" aria-current="page" href="/orders">Ordenes</a>
+        </li>  
+        <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/donations">Donaciones</a>
+        </li>        
       </ul>
       
 
@@ -41,9 +44,7 @@
                   </form>
               </li>
           </ul>
-      </li
-      
-    </div>
+      </li>
   </div>
   
 </nav>

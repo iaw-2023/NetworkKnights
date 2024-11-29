@@ -12,7 +12,10 @@ class Client extends Model
     protected $fillable = [
         'id',
         'email',
-        'name'
+        'name',
+        'surname',
+        'address',
+        'password'
     ];
 
     public $incrementing = true;

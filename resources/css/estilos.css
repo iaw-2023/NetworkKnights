@@ -17,7 +17,10 @@ body {
 #mascotas th,
 #mascotas td,
 #ordenes th,
-#ordenes td {
+#ordenes td,
+#donaciones td,
+#donaciones th 
+{
   color: white;
 }
 

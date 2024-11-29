@@ -113,6 +113,7 @@ class PetController extends Controller
     public function destroy(string $id)
     {
         $pet = Pet::find($id);
+        Cloudinary::destroy($pet->id_image);
         $pet->delete();
 
         return redirect('/pets');

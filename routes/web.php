@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route:: resource('categories', 'App\Http\Controllers\CategoryController');
     Route:: resource('pets', 'App\Http\Controllers\PetController');
     Route:: resource('orders', 'App\Http\Controllers\OrderController'); 
+    Route:: resource('donations', 'App\Http\Controllers\DonationController'); 
 });
 
 require __DIR__.'/auth.php';
