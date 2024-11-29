@@ -10,8 +10,9 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class HomeController extends Controller
 {
-    function obtenerMeme(){
-        $meme= HTTP::get('https://api.humorapi.com/memes/random?api-key=205dd8bbfc884600bd27332e2005bae9&include-tags=animal')['url'];
+    function obtenerMeme() {
+        $meme = HTTP::get('https://api.humorapi.com/memes/random?api-key=205dd8bbfc884600bd27332e2005bae9&include-tags=pet')['url'];    
         return view('home', compact('meme'));
     }
+    
 }
