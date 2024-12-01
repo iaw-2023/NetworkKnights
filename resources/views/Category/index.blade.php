@@ -24,9 +24,13 @@
                 <td>
                 <form action= "{{route ('categories.destroy',$categoria->id)}}" method="POST">
                 <a href= "/categories/{{$categoria->id}}/edit" class="btn btn-info">Editar</a>         
-                    @csrf
-                    @method('DELETE')
-                <button type="submit" class="btn btn-danger">Borrar</button>
+                    
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" 
+                    data-id="{{ $categoria->id }}"> Borrar
+                    </button>
+
+
+
                 </form>          
                 </td>  
                 
@@ -34,26 +38,37 @@
             @endforeach
         </tbody>
     </table>
+    @include('Category.delete')
+
+</div>
 
     @section('js')
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-        
-        <script>
-            
-            $('#categorias').DataTable({
-                "lengthMenu": [
-                    [5,10, 25, 50, -1],
-                    [5,10, 25, 50, "All"]
-                ]
-            });
-            
-            
-        </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+        $('#categorias').DataTable({
+            "lengthMenu": [
+                [5, 10, 25, 50, -1],
+                [5, 10, 25, 50, "All"]
+            ]
+        });
+
+        // Configurar la acción del formulario al abrir el modal
+        const deleteModal = document.getElementById('deleteModal');
+        const deleteForm = document.getElementById('deleteForm');
+
+        deleteModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget; // Botón que activó el modal
+            const id = button.getAttribute('data-id'); // Obtener el ID de la categoría
+            deleteForm.action = `/categories/${id}`; // Configurar la acción del formulario
+        });
+    </script>
     @endsection
 
 
+
 @endsection
-</div>
+
 
