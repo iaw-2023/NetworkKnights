@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\APICategoryController;
 use App\Http\Controllers\Api\APIOrderController;
 use App\Http\Controllers\Api\APIPetController;
+use App\Http\Controllers\Api\APIMercadoPagoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,8 @@ Route::post('/orders',[APIOrderController::class, 'store']);
 Route::get('/pets',[APIPetController::class, 'index']);
 Route::get('/pets/{id}',[APIPetController::class, 'show']);
 Route::get('/pets/category/{categoryName}',[APIPetController::class,'getPetsByCategory']);
+
+Route::post('/donacion',[APIMercadoPagoController::class, 'pago']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
