@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Pet;
 use App\Models\Category;
+use App\Http\Controllers\OrderController;
 use Exception;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
@@ -113,8 +114,14 @@ class PetController extends Controller
     public function destroy(string $id)
     {
         $pet = Pet::find($id);
-        Cloudinary::destroy($pet->id_image);
-        $pet->delete();
+        if($pet->id_image != null){
+            Cloudinary::destroy($pet->id_image);  
+        }
+       
+        //Si pertenece a una orden, deberia eliminarse esa orden
+
+        $pet->delete();  
+            
 
         return redirect('/pets');
     }

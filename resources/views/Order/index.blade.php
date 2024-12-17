@@ -37,9 +37,8 @@
                 <td>
                 <form action= "{{route ('orders.destroy',$orden->id)}}" method="POST">
                         
-                    @csrf
-                    @method('DELETE')
-                <button type="submit" class="btn btn-danger">Borrar</button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" 
+                        data-id="{{ $orden->id }}"> Borrar </button>
                 </form>          
                 </td>  
                 
@@ -49,7 +48,8 @@
     
         </tbody>
     </table>
-
+    @include('Order.delete')
+</div>
     @section('js')
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -64,9 +64,18 @@
                 ]
             });
             
+            // Configurar la acción del formulario al abrir el modal
+        const deleteModal = document.getElementById('deleteModal');
+        const deleteForm = document.getElementById('deleteForm');
+
+        deleteModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget; // Botón que activó el modal
+            const id = button.getAttribute('data-id'); // Obtener el ID de la categoría
+            deleteForm.action = `/orders/${id}`; // Configurar la acción del formulario
+        });
             
         </script>
     @endsection
 
-</div>
+
 @endsection
