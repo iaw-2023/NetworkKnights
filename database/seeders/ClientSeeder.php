@@ -18,7 +18,7 @@ class ClientSeeder extends Seeder
             'name' => 'Juan',
             'surname' => 'Perez',
             'role' => 'client',
-            'address' => 'Alem 690',
+           // 'address' => 'Alem 690',
             'email' => 'juanperez@client.com',
             //'password' => Hash::make('juanpe'),
             'email_verified_at' => now()            
@@ -28,7 +28,7 @@ class ClientSeeder extends Seeder
             'name' => 'Florencia',
             'surname' => 'Sanchez',
             'role' => 'client',
-            'address' => 'Zelarrayan 360',
+           // 'address' => 'Zelarrayan 360',
             'email' => 'florsanchez@client.com',
             //'password' => Hash::make("florchi"),
             'email_verified_at' => now()
@@ -38,7 +38,7 @@ class ClientSeeder extends Seeder
             'name' => 'Roberto',
             'surname' => 'Gomez',
             'role' => 'client',
-            'address' => 'Paraguay 120',
+           // 'address' => 'Paraguay 120',
             'email' => 'robertog@client.com',
             //'password' => Hash::make("robert"),
             'email_verified_at' => now()

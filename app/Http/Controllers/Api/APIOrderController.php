@@ -65,10 +65,14 @@ class APIOrderController extends Controller
         
             // Si el usuario no existe, lo creo
             if (!$client) {
-                $name = strstr($email, '@', true);
+                //$name = strstr($email, '@', true);
+                $name = $request->input('name');
+                $surname = $request->input('surname');
                 $client = Client::create([
                     'name' => $name,
+                    'surname' =>$surname,
                     'email' => $email,
+                    
                 ]);
                 echo $client;
                 $client->save;       
