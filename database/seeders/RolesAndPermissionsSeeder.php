@@ -34,8 +34,7 @@ class RolesAndPermissionsSeeder extends Seeder
         //$client = Role ::create(['name'=>'client']);
 
         //asignar permisos a los roles
-        $admin->givePermissionTo('create pet', 'edit pet', 'delete pet','create category', 'edit category', 'delete category',
-        'delete order');
+        $admin->givePermissionTo(Permission::all());
         $colaborator->givePermissionTo('create pet', 'edit pet', 'delete pet');
 
     }
