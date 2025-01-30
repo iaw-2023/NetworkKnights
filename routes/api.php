@@ -21,6 +21,7 @@ Route::get('/categories', [APICategoryController:: class, 'index']);
 Route::get('/categories/{id}', [APICategoryController:: class, 'show']);
 
 Route::post('/orders',[APIOrderController::class, 'store']);
+Route::get('/orders/{email}',[APIOrderController::class, 'getOrdersByEmail']);
 
 Route::get('/pets',[APIPetController::class, 'index']);
 Route::get('/pets/{id}',[APIPetController::class, 'show']);
