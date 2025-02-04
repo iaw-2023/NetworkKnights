@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\APICategoryController;
 use App\Http\Controllers\Api\APIOrderController;
 use App\Http\Controllers\Api\APIPetController;
+use App\Http\Controllers\Api\APIClientController;
 use App\Http\Controllers\Api\APIMercadoPagoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,8 @@ Route::post('/donacion',[APIMercadoPagoController::class, 'pago']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('login',[Controller::class, 'login']);
+Route::post('register',[APIClientController::class, 'register']);
+
+Route::middleware('auth:sanctum')->get('/client/orders', [APIClientController::class, 'getClientOrders']);

@@ -13,7 +13,6 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Solicitante</th>
-            
             <th scope="col">Correo</th>
             <th scope="col">Mascota</th>
 

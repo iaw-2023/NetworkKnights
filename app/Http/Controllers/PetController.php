@@ -117,12 +117,8 @@ class PetController extends Controller
         if($pet->id_image != null){
             Cloudinary::destroy($pet->id_image);  
         }
-       
-        //Si pertenece a una orden, deberia eliminarse esa orden
-
+       //Si pertenece a una orden, deberia eliminarse esa orden
         $pet->delete();  
-            
-
         return redirect('/pets');
     }
 }
