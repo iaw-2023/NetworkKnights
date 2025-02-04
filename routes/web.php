@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->middleware(['auth', 'verified'])->name('home');
-
-Route::get('/home', function () {
-    return view('home');
-})->middleware(['auth', 'verified'])->name('home'); //antes tenia dashboard
+Route::get('/', [HomeController::class, 'obtenerMeme'])->middleware(['auth', 'verified'])->name('home');
+Route::get('/home', [HomeController::class, 'obtenerMeme'])->middleware(['auth', 'verified'])->name('home');
 
 //Route::get('/dashboard', function () {
   //  return view('home'); //antes tenia dashboard
@@ -33,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route:: resource('categories', 'App\Http\Controllers\CategoryController');
     Route:: resource('pets', 'App\Http\Controllers\PetController');
     Route:: resource('orders', 'App\Http\Controllers\OrderController'); 
+    Route:: resource('donations', 'App\Http\Controllers\DonationController'); 
 });
 
 require __DIR__.'/auth.php';
