@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedInteger('id_category');
             $table->unsignedInteger('id_order')->nullable();
             $table->string('name');
+            $table->string('size');
             $table->string('sex');
             $table->string('image');
             $table->string('id_image')->nullable();

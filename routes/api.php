@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\APIOrderController;
 use App\Http\Controllers\Api\APIPetController;
 use App\Http\Controllers\Api\APIClientController;
 use App\Http\Controllers\Api\APIMercadoPagoController;
+use App\Http\Controllers\Api\APIGeminiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,7 @@ Route::get('/pets/{id}',[APIPetController::class, 'show']);
 Route::get('/pets/category/{categoryName}',[APIPetController::class,'getPetsByCategory']);
 
 Route::post('/donacion',[APIMercadoPagoController::class, 'pago']);
+Route::post('/getPetTips', [APIGeminiController::class, 'getPetTips']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
