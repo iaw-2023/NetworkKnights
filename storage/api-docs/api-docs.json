@@ -193,6 +193,10 @@
                                                 "description": "URL de la imagen de la mascota.",
                                                 "type": "string"
                                             },
+                                            "size": {
+                                                "description": "Tamaño de la mascota.",
+                                                "type": "string"
+                                            },
                                             "sex": {
                                                 "description": "Sexo de la mascota.",
                                                 "type": "string"
