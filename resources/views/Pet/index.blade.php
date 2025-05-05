@@ -16,12 +16,13 @@
     <table id="mascotas" class="table table-striped mt-4"> 
         <thead>
             <tr> 
-                <th scope="col">Nombre</th>
-                <th scope="col">Sexo</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">En adopcion</th>
-                <th scope="col">Imagen</th>
-                <th scope="col">Acciones</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Tamaño</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">En adopcion</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Acciones</th>
             </tr>
         </thead>    
         <tbody>
@@ -29,7 +30,8 @@
             <tr>
                 <td>{{$pet->name}}</td>
                 <td>{{ $pet->sex === 'female' ? 'Hembra' : 'Macho' }}</td>
-                <td>{{$pet->category->name}}</td>
+                <td> {{ $pet->size === 'small' ? 'Pequeño' : ($pet->size === 'medium' ? 'Medio' : ($pet->size === 'large' ? 'Grande' : 'No definido')) }}</td>
+                <td>{{$pet -> category -> name}}</td>
                 <td>{{ $pet['id_order'] ? 'No' : 'Sí' }}</td>
 
                 <td>

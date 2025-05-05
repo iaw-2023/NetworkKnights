@@ -17,7 +17,8 @@ class ClientSeeder extends Seeder
         DB::table('clients')->insert([
             'name' => 'Juan',
             'surname' => 'Perez',
-            'address' => 'Alem 690',
+            'role' => 'client',
+           // 'address' => 'Alem 690',
             'email' => 'juanperez@client.com',
             //'password' => Hash::make('juanpe'),
             'email_verified_at' => now()            
@@ -26,7 +27,8 @@ class ClientSeeder extends Seeder
         DB::table('clients')->insert([
             'name' => 'Florencia',
             'surname' => 'Sanchez',
-            'address' => 'Zelarrayan 360',
+            'role' => 'client',
+           // 'address' => 'Zelarrayan 360',
             'email' => 'florsanchez@client.com',
             //'password' => Hash::make("florchi"),
             'email_verified_at' => now()
@@ -35,7 +37,8 @@ class ClientSeeder extends Seeder
         DB::table('clients')->insert([
             'name' => 'Roberto',
             'surname' => 'Gomez',
-            'address' => 'Paraguay 120',
+            'role' => 'client',
+           // 'address' => 'Paraguay 120',
             'email' => 'robertog@client.com',
             //'password' => Hash::make("robert"),
             'email_verified_at' => now()

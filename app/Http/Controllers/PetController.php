@@ -54,7 +54,8 @@ class PetController extends Controller
         $pet = new Pet();
 
         $pet -> name = $request->get('name');
-        $pet -> sex = $request->get('sex');
+        $pet-> size = $request->get('size');
+        $pet -> sex = $request->get('sex');        
         $pet -> id_category = $request->get('id_category');
         $pet->image = $imageUrl;
         $pet->id_image = $uploadedImage->getPublicId();
@@ -89,7 +90,8 @@ class PetController extends Controller
         $pet = Pet::find($id);
 
         $pet->name = $request->input('name');
-        $pet->sex = $request->input('sex');
+        $pet->size = $request->input('size');
+        $pet->sex = $request->input('sex');       
         $pet->id_category = $request->input('id_category');
 
             if($request->has('image')){
@@ -117,12 +119,8 @@ class PetController extends Controller
         if($pet->id_image != null){
             Cloudinary::destroy($pet->id_image);  
         }
-       
-        //Si pertenece a una orden, deberia eliminarse esa orden
-
+       //Si pertenece a una orden, deberia eliminarse esa orden
         $pet->delete();  
-            
-
         return redirect('/pets');
     }
 }

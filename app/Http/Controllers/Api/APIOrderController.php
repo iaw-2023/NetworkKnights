@@ -65,10 +65,14 @@ class APIOrderController extends Controller
         
             // Si el usuario no existe, lo creo
             if (!$client) {
-                $name = strstr($email, '@', true);
+                //$name = strstr($email, '@', true);
+                $name = $request->input('name');
+                $surname = $request->input('surname');
                 $client = Client::create([
                     'name' => $name,
+                    'surname' =>$surname,
                     'email' => $email,
+                    
                 ]);
                 echo $client;
                 $client->save;       
@@ -99,8 +103,18 @@ class APIOrderController extends Controller
         $pet->save();
 
         return response()->json(['message' => 'La orden ha sido creada con éxito', 'order_id' => $order->id]);
-        }
     }
+
+
+
+    public function getOrdersByEmail(string $email){
+        $id = Client::where('email', $email)->value('id'); //obtengo el id asociado al mail
+        $id_orders = Order::where('id_client', $id)->pluck('id'); //obtengo los ID de las ordenes asociadas al ID de cliente
+        $pets = Pet::whereIn('id_order', $id_orders)->get();
+
+        return response()->json($pets);
+    }
+}
 
     
 
