@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/categories', [APICategoryController:: class, 'index']);
 Route::get('/categories/{id}', [APICategoryController:: class, 'show']);
 
-Route::post('/orders',[APIOrderController::class, 'store']);
-Route::get('/orders/{email}',[APIOrderController::class, 'getOrdersByEmail']);
+//Route::post('/orders',[APIOrderController::class, 'store']);
+//Route::get('/orders/{email}',[APIOrderController::class, 'getOrdersByEmail']);
 
 Route::get('/pets',[APIPetController::class, 'index']);
 Route::get('/pets/{id}',[APIPetController::class, 'show']);
@@ -36,7 +36,22 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('login',[Controller::class, 'login']);
+//Route::post('login',[Controller::class, 'login']);
 Route::post('register',[APIClientController::class, 'register']);
 
 Route::middleware('auth:sanctum')->get('/client/orders', [APIClientController::class, 'getClientOrders']);
+
+Route::middleware('auth0')->get('/protected', function (Request $request) {
+    return response()->json([
+        'message' => 'Acceso autorizado',
+        'user' => $request->attributes->get('auth0_user'),
+    ]);
+});
+
+
+Route::middleware('auth0')->group(function () {
+    Route::post('/orders', [APIOrderController::class, 'store']);
+    Route::get('/orders/{email}', [APIOrderController::class, 'getOrdersByEmail']);
+});
+
+
