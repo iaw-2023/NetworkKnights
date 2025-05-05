@@ -8,6 +8,14 @@ use App\Models\Pet;
 
 class OrderController extends Controller
 {
+    
+    public function __construct(){
+        $this->middleware([
+            'role:admin',
+            'permission:delete order',
+        ])->only(['destroy']);
+    }
+    
     /**
      * Display a listing of the resource.
      */
