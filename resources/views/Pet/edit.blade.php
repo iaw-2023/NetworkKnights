@@ -9,17 +9,29 @@
     @method('patch')
     @method('PUT')
     <div class="mb-3">
-      <label for="" class="form-label">Name</label>
+      <label for="" class="form-label">Nombre</label>
       <input id="name" name="name" type="text" class="form-control" tabindex="2" value="{{$pet->name}}">
     </div>
     
     <div class="mb-3">
-    <label style="color:#ffffff" for="" class="form-label">Sex</label>
+    <label style="color:#ffffff" for="" class="form-label">Sexo</label>
       <select id= "sex" name='sex'class="form-select">
           <option value="female" 
             @if ($pet->sex == 'female') selected @endif>Hembra</option>
           <option value="male" 
             @if ($pet->sex == 'male') selected @endif>Macho</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+    <label style="color:#ffffff" for="" class="form-label">Tamaño</label>
+      <select id= "size" name='size'class="form-select">
+          <option value="small" 
+            @if ($pet->size == 'small') selected @endif>Pequeño</option>
+          <option value="medium" 
+            @if ($pet->size == 'medium') selected @endif>Medio</option>
+          <option value="large" 
+            @if ($pet->size == 'large') selected @endif>Grande</option>
       </select>
     </div>
     

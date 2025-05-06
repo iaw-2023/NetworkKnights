@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>500</title>
+  <title>403</title>
 
   <style id="" media="all">
     /* cyrillic-ext */
@@ -131,10 +131,10 @@
   <div id="notfound">
     <div class="notfound">
       <div class="notfound-404">
-        <h3>Oops! Internal Server Error</h3>
+        <h3>Insufficient permissions</h3>
        <!-- <h1><span>4</span><span>0</span><span>4</span></h1> -->
-       <img src="https://http.cat/500" alt="Gato 500" width="400" height="300">
-       <h3>The server was unable to complete your request. Please try again later.</h3>
+       <img src="https://http.cat/403" alt="Gato 503" width="400" height="300">
+       <h3>You do not have permissions to perform this action.</h3>
       </div>
       
     </div>

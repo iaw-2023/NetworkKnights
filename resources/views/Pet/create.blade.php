@@ -9,16 +9,25 @@
       @csrf
       
       <div class="mb-3 w-3/4">
-        <h2 for="" class="form-label">Name</h2>
+        <h2 for="" class="form-label">Nombre</h2>
         <input id="name" name="name" type="text" class="form-control w-3/4" tabindex="2">
       <div>
     </div>
 
     <div class="mb-3 w-3/4">
-    <h2 style="color:#ffffff" for="" class="form-label ">Sex</h2>    
+    <h2 style="color:#ffffff" for="" class="form-label ">Sexo</h2>    
       <select id="sex" name='sex'class="form-select">
           <option value="female"> Hembra </option>  
           <option value="male"> Macho </option>  
+      </select>
+    </div>
+
+    <div class="mb-3 w-3/4">
+    <h2 style="color:#ffffff" for="" class="form-label ">Tamaño</h2>    
+      <select id="size" name='size'class="form-select">
+          <option value="small"> Pequeño </option>  
+          <option value="medium"> Medio </option>  
+          <option value="large"> Grande </option> 
       </select>
     </div>
     
