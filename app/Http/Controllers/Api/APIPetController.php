@@ -38,6 +38,11 @@ class APIPetController extends Controller
     *                     type="string",
     *                     description="URL de la imagen de la mascota."
     *                 ),
+                       @OA\Property(
+    *                     property="size",
+    *                     type="string",
+    *                     description="Tamaño de la mascota."
+    *                 ),
     *                 @OA\Property(
     *                     property="sex",
     *                     type="string",
@@ -71,7 +76,7 @@ class APIPetController extends Controller
             ->whereNull('id_order')
             ->get()
             ->map(function ($pet) {
-                $petData = $pet->only(['id', 'name', 'sex', 'image']);
+                $petData = $pet->only(['id', 'size', 'name', 'sex', 'image']);
                 $petData['category_name'] = $pet->category->name ?? null;
                 return $petData;
             });
@@ -158,7 +163,7 @@ class APIPetController extends Controller
         return response()->json(['Mascota no encontrada'], 404);
     }
     
-    $petData = $pet->only(['id', 'name', 'sex', 'image']);
+     $petData = $pet->only(['id', 'name','size', 'sex', 'image']);
     $petData['category_name'] = $pet->category->name ?? null;
     
     return response()->json($petData);
