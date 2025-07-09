@@ -54,8 +54,8 @@ class PetController extends Controller
         $pet = new Pet();
 
         $pet -> name = $request->get('name');
-        $pet-> size = $request->get('size');
-        $pet -> sex = $request->get('sex');        
+        $pet->size = $request->input('size');
+        $pet->sex = $request->input('sex');    
         $pet -> id_category = $request->get('id_category');
         $pet->image = $imageUrl;
         $pet->id_image = $uploadedImage->getPublicId();
@@ -90,8 +90,8 @@ class PetController extends Controller
         $pet = Pet::find($id);
 
         $pet->name = $request->input('name');
-        $pet->size = $request->input('size');
-        $pet->sex = $request->input('sex');       
+        $pet-> size = $request->get('size');
+        $pet -> sex = $request->get('sex');
         $pet->id_category = $request->input('id_category');
 
             if($request->has('image')){
