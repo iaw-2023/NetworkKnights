@@ -76,7 +76,7 @@ class APIClientController extends Controller{
             $cliente = new Client();
             $cliente -> name = $request -> name;
             $cliente -> surname = $request -> surname;
-            $cliente -> address =$request -> address;
+            $cliente -> address = $request -> address;
             $cliente -> role = "client";
             $cliente -> email = $request -> email;
             $cliente-> password = Hash::make($request->password);

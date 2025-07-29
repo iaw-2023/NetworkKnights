@@ -60,6 +60,8 @@ class APIOrderController extends Controller
         // Obtengo el correo electrónico del request
         $email = $request->input('email');
 
+        $address = $request->input('address');
+
         // Verifico existe un cliente con ese mail en la base de datos
         $client = Client::where('email', $email)->first();
         
@@ -72,11 +74,12 @@ class APIOrderController extends Controller
                     'name' => $name,
                     'surname' =>$surname,
                     'email' => $email,
+                    'address' =>$address,
                     
                 ]);
-                echo $client;
-                $client->save;       
-                echo "despues de guardar";
+                //echo $client;
+                //$client->save;       
+                //echo "despues de guardar";
             }
 
         // Obtener el ID de la mascota que desea adoptar

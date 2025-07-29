@@ -82,10 +82,10 @@ class APIPetController extends Controller
             });
 
         if ($pets->isEmpty()) {
-            return response()->json(['No hay mascotas disponibles para adoptar']);
+            return response()->json(['message' => 'No hay mascotas disponibles para adoptar'], 200);
         }
 
-        return response()->json($pets);
+        return response()->json($pets, 200);
     }  
      
      
