@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class APIGeminiController extends Controller
 {
@@ -14,28 +15,40 @@ class APIGeminiController extends Controller
         $apiKey = "AIzaSyBseN7uyqKn6e2v6KBoEjhrPxX6ZSqLutc";
         $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=$apiKey";
 
-        $prompt = "🎉 ¡Aquí van algunos consejos de cuidado para tu mascota! 🐾\n\n".
-          " **Nombre**: {$data['name']}\n".
-          "🦴 **Tipo**: {$data['category']}\n".
-          "♂️♀️ **Género**: {$data['sex']}\n".
-          "📏 **Tamaño**: {$data['size']}\n".
-          "🖼️ **Imagen**: " . (!empty($data['image']) ? "Sí" : "No") . "\n\n".
-          "📋 **Consejos**:\n".
-          "1. Mantén a tu mascota hidratada 💧.\n".
-          "2. Asegúrate de darle ejercicio regularmente 🏃‍♂️.\n".
-          "3. Dale un lugar cómodo para descansar 🛏️.\n".
-          "4. Visita al veterinario para chequeos 🏥.\n".
-          "5. No olvides su comida y premios favoritos 🍖🍪.";
+        //$detalleTamaño = fraseTamaño($data['size']);
+        
+        $prompt = <<<EOT
+        Dame 5 consejos específicos para el cuidado de una mascota con las siguientes características:
+        
+        - Nombre: {$data['name']}
+        - Tipo: {$data['category']}
+        - Sexo: {$data['sex']}
+        - Tamaño: {$data['size']}
+        - Si no está castrado, debes poder asegurar su castración 
+        
+        consejos en relacion por ejemplo con: hidratacion, ejercicio, lugar para descansar, chequeos veterinarios, comida y premios.
+        
+        Respondé solo con los 5 consejos cortos usando formato Markdown y cada uno separado del otro por un salto. SIN INTRODUCCIONES NI CONCLUSIONES.
+        EOT;
+
 
         try {
+            //$htmlTips = nl2br(e(Str::markdown($prompt)));
             $response = Http::post($url, [
                 'contents' => [['parts' => [['text' => $prompt]]]],
             ]);
 
             if ($response->successful()) {
                 $body = $response->json();
+
+                // Obtener el texto generado
+                $text = data_get($body, 'candidates.0.content.parts.0.text', 'No se obtuvieron consejos');
+
+                // Convertir Markdown a HTML con negritas y saltos de línea
+                $htmlTips = Str::markdown($text);
+
                 return response()->json([
-                    'tips' => $body['candidates'][0]['content']['parts'][0]['text'] ?? "No se obtuvieron consejos"
+                    'tips' => $htmlTips // Ya viene como HTML renderizable
                 ]);
             }
 
@@ -44,4 +57,9 @@ class APIGeminiController extends Controller
             return response()->json(['error' => 'Error al obtener consejos', 'details' => $e->getMessage()], 500);
         }
     }
+<<<<<<< HEAD
 }
+=======
+    
+}
+>>>>>>> 9442869 (mejoras consejos)
