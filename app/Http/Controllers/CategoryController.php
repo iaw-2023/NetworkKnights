@@ -7,10 +7,6 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-
      public function __construct()
      {
          // Usar el formato correcto para aplicar múltiples middleware en un solo array
@@ -29,8 +25,10 @@ class CategoryController extends Controller
              'permission:delete category',
          ])->only(['destroy']);
      }
-      
-     
+
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         $categorias = Category::all();

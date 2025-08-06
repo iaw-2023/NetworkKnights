@@ -38,15 +38,15 @@ class APIPetController extends Controller
     *                     type="string",
     *                     description="URL de la imagen de la mascota."
     *                 ),
+                       @OA\Property(
+    *                     property="size",
+    *                     type="string",
+    *                     description="Tamaño de la mascota."
+    *                 ),
     *                 @OA\Property(
     *                     property="sex",
     *                     type="string",
     *                     description="Sexo de la mascota."
-    *                 ),
-    *                 @OA\Property(
-    *                     property="size",
-    *                     type="string",
-    *                     description="Tamaño de la mascota."
     *                 ),
     *                 @OA\Property(
     *                     property="category_name",
@@ -82,10 +82,10 @@ class APIPetController extends Controller
             });
 
         if ($pets->isEmpty()) {
-            return response()->json(['No hay mascotas disponibles para adoptar']);
+            return response()->json(['message' => 'No hay mascotas disponibles para adoptar'], 200);
         }
 
-        return response()->json($pets);
+        return response()->json($pets, 200);
     }  
      
      
@@ -133,11 +133,6 @@ class APIPetController extends Controller
     *                     type="string",
     *                     description="Sexo de la mascota."
     *                 ),
-    *               @OA\Property(
-    *                     property="size",
-    *                     type="string",
-    *                     description="Tamaño de la mascota."
-    *                 ),
     *                 @OA\Property(
     *                     property="category_name",
     *                     type="string",
@@ -168,7 +163,7 @@ class APIPetController extends Controller
         return response()->json(['Mascota no encontrada'], 404);
     }
     
-    $petData = $pet->only(['id', 'name','size', 'sex', 'image']);
+     $petData = $pet->only(['id', 'name','size', 'sex', 'image']);
     $petData['category_name'] = $pet->category->name ?? null;
     
     return response()->json($petData);

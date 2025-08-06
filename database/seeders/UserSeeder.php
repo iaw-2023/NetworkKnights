@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        // Verificar y obtener IDs de roles
+       // Verificar y obtener IDs de roles
         $adminRoleId = DB::table('roles')->where('name', 'admin')->value('id');
         $colaboratorRoleId = DB::table('roles')->where('name', 'colaborator')->value('id');
 
@@ -26,14 +26,14 @@ class UserSeeder extends Seeder
             'name' => 'adminiaw',
             'email' => 'admin@iaw.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('admin123'),
+            'password' => bcrypt('admin123')
         ]);
 
-        $colaboratorId = DB::table('users')->insertGetId([
+         $colaboratorId = DB::table('users')->insertGetId([
             'name' => 'iawquimey',
             'email' => 'quimeyrodi@gmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('campi123'),
+            'password' => bcrypt('campi123')
         ]);
 
         // Relación en la tabla `model_has_roles`
