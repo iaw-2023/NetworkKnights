@@ -57,9 +57,4 @@ class APIGeminiController extends Controller
             return response()->json(['error' => 'Error al obtener consejos', 'details' => $e->getMessage()], 500);
         }
     }
-<<<<<<< HEAD
 }
-=======
-    
-}
->>>>>>> 9442869 (mejoras consejos)
