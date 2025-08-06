@@ -29,27 +29,6 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-
-     public function __construct()
-     {
-         // Usar el formato correcto para aplicar múltiples middleware en un solo array
-         $this->middleware([
-             'role:admin',
-             'permission:create category',
-         ])->only(['create', 'store']); 
-     
-         $this->middleware([
-             'role:admin',
-             'permission:edit category',
-         ])->only(['edit', 'update']);
-     
-         $this->middleware([
-             'role:admin',
-             'permission:delete category',
-         ])->only(['destroy']);
-     }
-      
-     
     public function index()
     {
         $categorias = Category::all();
